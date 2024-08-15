@@ -1,4 +1,4 @@
-# CasusCbs
+# Casus Cbs
 Repo voor casus cbs : Bevat R code voor het ontsluiten, bewerken, visualiseren en opslaan van data.
 De code die wordt gevonden in deze repro is gemaakt in opdracht van het cbs met onderstaande omschrijving als uitgangspunt.
 

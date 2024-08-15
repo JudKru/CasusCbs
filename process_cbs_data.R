@@ -1,57 +1,15 @@
-# Install and load dependencies
-if(!require('dplyr')) {
-  install.packages('dplyr')
-  library('dplyr')
-}
-
-if(!require('cbsodataR')) {
-  install.packages('cbsodataR')
-  library('cbsodataR')
-}
-
-if(!require('DBI')) {
-  install.packages('DBI')
-  library('DBI')
-}
-
-if(!require('RSQLite')) {
-  install.packages('RSQLite')
-  library('RSQLite')
-}
-
-if(!require('ggplot2')) {
-  install.packages('ggplot2')
-  library('ggplot2')
-}
-
-
-
 # Variables
 # Chosen categories "011130 Brood" en "011470 Eieren"
+dir = "~/cbs_casus/"
 categorieen = c("CPI011130", "CPI011470")
 perioden_filter = "MM"
 column_filter = c("Bestedingscategorieen", "Perioden", "CPI_1", "MaandmutatieCPI_3")
 db_name = "cbs_casus.sqlite"
 
-# Functions
-# Function that takes a quarter and calculates the mutation in that quarter. 
-def_prev_kwartaal <- function(x) {
-  kwartaal <- unlist(strsplit(x[2], split = "Q"))
-  if (kwartaal[2] %in% c(2,3,4)){
-    
-     result <- paste(kwartaal[1],strtoi(kwartaal[2]) -1, sep="Q")
-  }
-  else {
-    result <- paste(strtoi(kwartaal[1])-1, "4", sep="Q")
-  }
-     
-  return (result)
-}
+# Load dependencies
+source(paste(dir, "dependencies.R", sep=""))
+source(paste(dir, "functions.R", sep=""))
 
-def_find_cpi_prev_kwartaal <- function (x, data){
-  df1 <- subset(data,data$Bestedingscategorieen == x[1] & data$Kwartaal==x[4])
-  return(df1$CPI_Kwartaal)
-}
 
 # Download the "Consumentenprijzenindex" table and filter with filters defined above
 data <- cbs_get_data("83131NED" 
@@ -94,7 +52,7 @@ ggplot(data = summarised_data
              group= BestedingscategorieStr
              )
        )+ theme(axis.text.x = element_text(angle = 90)) + geom_line() + ggtitle("CPI per kwartaal voor Brood en Eieren")
-ggsave("Kwartaal.pdf")
+ggsave(paste(dir, "Kwartaal.pdf", sep=""))
 
 
 # line graph 2 product kwartaalmutatie
@@ -105,7 +63,7 @@ ggplot(data = summarised_data
              , group= BestedingscategorieStr
             )
       ) +  theme(axis.text.x = element_text(angle = 90)) + geom_line() + ggtitle("Kwartaalmutatie van CPI voor Brood en Eieren")
-ggsave("Kwartaalmutatie.pdf")
+ggsave(paste(dir, "Kwartaalmutatie.pdf", sep=""))
 
 
 # Write results to SQLite database

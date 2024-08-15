@@ -16,5 +16,9 @@ De repo bevat 3 R files die de kern vormen van de code:
 2. dependencies.R : dit script bevat alle packages die nodig zijn om het process_cbs_data script uit te kunnen voeren.
 3. functions.R : dit script bevat zelf geschreven functies die worden gebruikt in het process_cbs_data script.
 
-## Input voor uitvoeren van process
-In deze code wordt cbs data gebruikt en specifieken de Consumentenprijzen per jaar. 
+## Externe afhankelijkheden
+1. De input data bestaat uit cbs data. Specifieker de tabel Consumentenprijzen per maand.
+2. Er wordt een SQLite database gebruikt.
+
+## Outputs
+Na het uitvoeren van het script worden er 2 pfs gegenereerd met grafieken en de tabel met kwartaalmutaties wordt naar een SQLite database geschreven.

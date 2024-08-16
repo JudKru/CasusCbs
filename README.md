@@ -14,9 +14,9 @@ Zet een klein overzichtelijk en opzichzelfstaand proces op in R, waarbinnen inpu
 
 ## Inhoud repo
 De repo bevat 3 R files die de kern vormen van de code:
-1. process_cbs_data.R : is het main script wat verantwoordelijk is voor het ontsluiten, bewerken, visualiseren en opslaan van de data.
+1. process_cbs_data.R : is het main script dat verantwoordelijk is voor het ontsluiten, bewerken, visualiseren en opslaan van de data.
 2. dependencies.R : dit script bevat alle packages die nodig zijn om het process_cbs_data script uit te kunnen voeren.
-3. functions.R : dit script bevat zelf geschreven functies die worden gebruikt in het process_cbs_data script.
+3. functions.R : dit script bevat custom functies die worden gebruikt in het process_cbs_data script.
 
 ## Externe afhankelijkheden
 1. De input data bestaat uit cbs data. Specifieker de tabel Consumentenprijzen per maand.

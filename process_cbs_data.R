@@ -51,7 +51,7 @@ ggplot(data = summarised_data
              , color= BestedingscategorieStr,
              group= BestedingscategorieStr
              )
-       )+ theme(axis.text.x = element_text(angle = 90)) + geom_line() + ggtitle("CPI per kwartaal voor Brood en Eieren")
+       )+ theme(axis.text.x = element_text(size= 2, angle = 90)) + geom_line() + ggtitle("CPI per kwartaal voor Brood en Eieren")
 ggsave(paste(dir, "Kwartaal.pdf", sep=""))
 
 
@@ -62,7 +62,7 @@ ggplot(data = summarised_data
              , color= BestedingscategorieStr
              , group= BestedingscategorieStr
             )
-      ) +  theme(axis.text.x = element_text(angle = 90)) + geom_line() + ggtitle("Kwartaalmutatie van CPI voor Brood en Eieren")
+      ) +  theme(axis.text.x = element_text(size= 2, angle = 90)) + geom_line() + ggtitle("Kwartaalmutatie van CPI voor Brood en Eieren")
 ggsave(paste(dir, "Kwartaalmutatie.pdf", sep=""))
 
 

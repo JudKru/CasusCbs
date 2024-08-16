@@ -2,6 +2,8 @@
 Repo voor casus cbs : Bevat R code voor het ontsluiten, bewerken, visualiseren en opslaan van data.
 De code die wordt gevonden in deze repro is gemaakt in opdracht van het cbs met onderstaande omschrijving als uitgangspunt.
 
+!Belangrijk : De process_cbs_data.R bevat een variabele genaamd dir. Deze moet aan de lokale situatie aangepast worden om de code goed te laten runnen.
+
 ## Casus : R
 Probeer op basis van StatLine informatie cijfers te maken over de kwartaalmutatie van de consumentenprijs van twee interessante producten.
 Zet een klein overzichtelijk en opzichzelfstaand proces op in R, waarbinnen input, throughput en output duidelijk worden onderscheiden.
